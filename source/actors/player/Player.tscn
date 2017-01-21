@@ -1,38 +1,41 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://actors/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://actors/player/Player_iddle.tres" type="SpriteFrames" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.8554, 17.5353 )
+radius = 23.4097
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 33.4778
+radius = 23.2749
 
 [node name="Player" type="KinematicBody2D" groups=[ "players" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.487686, 16.0933 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.487703, 2.82933 )
 shapes/0/trigger = false
 collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 multiplier = 5.0
-player_flag = "Blue"
+player_flag = "player_one"
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 
-texture = ExtResource( 2 )
+frames = ExtResource( 2 )
+animation = "iddle"
+frame = 4
+playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.487686, 16.0933 )
+transform/pos = Vector2( -0.487703, 2.82933 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -41,7 +44,7 @@ _update_shape_index = 0
 
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.07545, 3.22638 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -52,6 +55,7 @@ collision/mask = 3
 
 [node name="Shape" type="CollisionShape2D" parent="Area"]
 
+transform/pos = Vector2( -1.07545, 3.22638 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0

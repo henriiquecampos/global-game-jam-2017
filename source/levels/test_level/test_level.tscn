@@ -44,7 +44,6 @@ transform/pos = Vector2( 905.854, 512.962 )
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 508.568, 248.908 )
-player_flag = "player_one"
 
 [node name="Player2" parent="YSort" instance=ExtResource( 2 )]
 
