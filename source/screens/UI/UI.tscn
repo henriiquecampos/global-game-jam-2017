@@ -27,6 +27,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 1 )
+which_player_group = "player_one"
 
 [node name="player_two_score" type="Label" parent="."]
 
@@ -42,5 +43,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 1 )
+which_player_group = "player_two"
 
 
