@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 30.0214, 16.5019 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -22,7 +22,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -35,7 +35,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends ProgressBar\n\nonready var tween = get_node(\"tween\")\n\nfunc _ready():\n\tset_process(true)\n\t\nfunc _process(delta):\n\tset_max(get_parent().get_node(\"timer\").get_wait_time())\n\t#set_value(get_parent().get_node(\"timer\").get_time_left())\n\tset_value(get_parent().get_node(\"timer\").get_wait_time()\n\t- get_parent().get_node(\"timer\").get_time_left())\n\t\n\t"
 
@@ -51,6 +51,8 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 player_one = Color( 0.206787, 0.529892, 0.945313, 1 )
 player_two = Color( 0.898438, 0.136871, 0.476006, 1 )
+player_one_score_path = NodePath("../../UI/player_one_score")
+player_two_score_path = NodePath("../../UI/player_two_score")
 waveScene = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -113,8 +115,8 @@ margin/left = -32.0
 margin/top = 36.0
 margin/right = 34.0
 margin/bottom = 52.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 range/min = 0.0
 range/max = 100.0
 range/step = 2.0
@@ -123,7 +125,7 @@ range/value = 70.143
 range/exp_edit = false
 range/rounded = false
 percent/visible = false
-script/script = SubResource( 2 )
+script/script = SubResource( 4 )
 
 [node name="tween" type="Tween" parent="time_charge"]
 

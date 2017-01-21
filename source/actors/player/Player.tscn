@@ -30,7 +30,7 @@ player_flag = "player_one"
 
 frames = ExtResource( 2 )
 animation = "iddle"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]

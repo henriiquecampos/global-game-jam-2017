@@ -4,6 +4,12 @@ export (Color) var player_one
 export (Color) var player_two
 var player_flag
 
+export (NodePath) var player_one_score_path
+export (NodePath) var player_two_score_path
+
+onready var player_one_score = get_node(player_one_score_path)
+onready var player_two_score = get_node(player_two_score_path)
+
 export (PackedScene) var waveScene
 onready var wave = load (waveScene.get_path())
 
@@ -32,7 +38,10 @@ func _on_timer_timeout():
 	explode()
 	get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))
 	get_node("emiter").set_emitting(true)
-
+	if player_flag == "player_one":
+		player_one_score.score += 10
+	elif player_flag == "player_two":
+		player_two_score.score += 10
 func _on_emiter_timer_timeout():
 	#get_node("emiter").set_emitting(false)
 	pass
