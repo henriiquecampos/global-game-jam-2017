@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://fonts/font.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/score.gd" type="Script" id=2]
+
+[node name="score" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="score_player_one" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 7.73435, 11.6648 )
+script/script = ExtResource( 2 )
+
+[node name="trace" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 95.6227, 11.6648 )
+frame = 10
+
+[node name="score_player_two" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 197.328, 11.6648 )
+script/script = ExtResource( 2 )
+
+

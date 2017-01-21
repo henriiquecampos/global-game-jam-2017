@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://levels/test_level/test_level.gd" type="Script" id=1]
 [ext_resource path="res://areas/tileset/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://objects/totem/Totem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://screens/UI/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://screens/score/score.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 
 resource/name = "game over"
-length = 0.4
+length = 2.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -21,7 +22,12 @@ tracks/1/type = "method"
 tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"game_over" } ] }
+tracks/1/keys = { "times":FloatArray( 1.9 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"game_over" } ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../score:rect/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 500, 270 ), Vector2( 557, 273 ) ] }
 
 [node name="test_level" type="Node2D"]
 
@@ -47,7 +53,6 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0
 
 [node name="YSort" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="Totem" parent="YSort" instance=ExtResource( 3 )]
@@ -89,15 +94,23 @@ transform/pos = Vector2( 682, 132 )
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 282, 382 )
+opponent_score_path = NodePath("../../score/score_player_two")
 
 [node name="Player2" parent="YSort" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1232, 382 )
 player_flag = "player_two"
+opponent_score_path = NodePath("../../score/score_player_one")
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
+[node name="player_one_score" parent="UI"]
+
+transform/pos = Vector2( 27.2649, 40.8973 )
+
+[node name="player_two_score" parent="UI"]
+
+transform/pos = Vector2( 1249.64, 38.6253 )
 
 [node name="ColorFrame" type="ColorFrame" parent="."]
 
@@ -123,5 +136,13 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="score" parent="." instance=ExtResource( 6 )]
+
+margin/left = 500.0
+margin/top = -200.0
+margin/right = 540.0
+margin/bottom = -160.0
+
 
 [editable path="UI"]
+[editable path="score"]

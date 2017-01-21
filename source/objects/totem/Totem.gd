@@ -22,9 +22,13 @@ func activate(flag):
 	add_to_group(player_flag)
 	if flag == "player_one":
 		explode_color = player_one
+		get_node("aura").set_emitting(true)
+		get_node("aura").set_color(player_one)
 		get_node("sprite").set_texture(texture_blue)
 	elif flag == "player_two":
 		explode_color = player_two
+		get_node("aura").set_emitting(true)
+		get_node("aura").set_color(player_two)
 		get_node("sprite").set_texture(texture_red)
 	get_node("timer").start()
 	
