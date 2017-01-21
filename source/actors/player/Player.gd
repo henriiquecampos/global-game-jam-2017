@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var collider = null
 const SPEED = 2000
 export (float) var multiplier
 export (String, "player_one", "player_two") var player_flag
@@ -37,24 +38,44 @@ func _fixed_process(delta):
 	elif player_flag == "player_two":
 		if Input.is_action_pressed("player_two_up"):
 			move_and_slide(Vector2(0,-SPEED * delta * multiplier))
+			get_node("Sprite").set_animation("running")
+		elif Input.is_action_just_released("player_two_up"):
+			get_node("Sprite").set_animation("iddle")
 		if Input.is_action_pressed("player_two_right"):
+			get_node("Sprite").set_flip_h(false)
 			move_and_slide(Vector2(SPEED * delta * multiplier,0))
+			get_node("Sprite").set_animation("running")
+		elif Input.is_action_just_released("player_two_right"):
+			get_node("Sprite").set_animation("iddle")
 		if Input.is_action_pressed("player_two_left"):
+			get_node("Sprite").set_flip_h(true)
+			get_node("Sprite").set_animation("running")
 			move_and_slide(Vector2(-SPEED * delta * multiplier,0))
+		elif Input.is_action_just_released("player_two_left"):
+			get_node("Sprite").set_animation("iddle")
 		if Input.is_action_pressed("player_two_down"):
+			get_node("Sprite").set_animation("running")
 			move_and_slide(Vector2(0,SPEED * delta * multiplier))
+		elif Input.is_action_just_released("player_two_down"):
+			get_node("Sprite").set_animation("iddle")
 		if Input.is_action_just_pressed("player_two_interact"):
 			interact()
 func interact():
-	var collider
-	if is_colliding():
-		collider = get_collider()
-		if collider.is_in_group("totem"):
-			collider.activate(player_flag)
-	else:
-		collider = null
+#	var collider
+#	if is_colliding():
+#		collider = get_collider()
+#		if collider.is_in_group("totem"):
+#			collider.activate(player_flag)
+#	else:
+#		collider = null
+	if collider.is_in_group("totem"):
+		collider.get_parent().activate(player_flag)
+	pass
 
 func _on_Area_area_enter( area ):
+	collider = area
+#	if area.is_in_group("totem"):
+#		area.get_parent().activate(player_flag)
 	if area.has_method("be_a_wave"):
 		if area.which_player != player_flag:
-			queue_free()
+			get_node("../../ColorFrame/animator").play("game over")

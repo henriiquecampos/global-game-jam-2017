@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 export (Color) var player_one
 export (Color) var player_two
+
+export (Texture) var texture_blue
+export (Texture) var texture_red
 var player_flag
 
 export (NodePath) var player_one_score_path
@@ -16,11 +19,13 @@ onready var wave = load (waveScene.get_path())
 var explode_color
 func activate(flag):
 	player_flag = flag
+	add_to_group(player_flag)
 	if flag == "player_one":
 		explode_color = player_one
+		get_node("sprite").set_texture(texture_blue)
 	elif flag == "player_two":
 		explode_color = player_two
-	get_node("sprite").set_modulate(Color(0.5, 0.5, 0.0))
+		get_node("sprite").set_texture(texture_red)
 	get_node("timer").start()
 	
 func explode():
@@ -38,10 +43,10 @@ func _on_timer_timeout():
 	explode()
 	get_node("sprite").set_modulate(Color(1.0, 1.0, 1.0))
 	get_node("emiter").set_emitting(true)
-	if player_flag == "player_one":
-		player_one_score.score += 10
-	elif player_flag == "player_two":
-		player_two_score.score += 10
+#	if player_flag == "player_one":
+#		player_one_score.score += 10
+#	elif player_flag == "player_two":
+#		player_two_score.score += 10
 func _on_emiter_timer_timeout():
 	#get_node("emiter").set_emitting(false)
 	pass

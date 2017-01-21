@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://objects/totem/Totem.gd" type="Script" id=1]
-[ext_resource path="res://objects/wave/wave.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://objects/totem/torreBLUE.png" type="Texture" id=2]
+[ext_resource path="res://objects/totem/torreRED.png" type="Texture" id=3]
+[ext_resource path="res://objects/wave/wave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/totem/torre.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.0214, 16.5019 )
+extents = Vector2( 13.6399, 9.72579 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 
@@ -39,11 +41,16 @@ draw_bg = true
 
 script/source = "extends ProgressBar\n\nonready var tween = get_node(\"tween\")\n\nfunc _ready():\n\tset_process(true)\n\t\nfunc _process(delta):\n\tset_max(get_parent().get_node(\"timer\").get_wait_time())\n\t#set_value(get_parent().get_node(\"timer\").get_time_left())\n\tset_value(get_parent().get_node(\"timer\").get_wait_time()\n\t- get_parent().get_node(\"timer\").get_time_left())\n\t\n\t"
 
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 22.6679
+
 [node name="Totem" type="KinematicBody2D" groups=[ "totem" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 15.9126 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 12.8341 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 2
@@ -51,20 +58,22 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 player_one = Color( 0.206787, 0.529892, 0.945313, 1 )
 player_two = Color( 0.898438, 0.136871, 0.476006, 1 )
+texture_blue = ExtResource( 2 )
+texture_red = ExtResource( 3 )
 player_one_score_path = NodePath("../../UI/player_one_score")
 player_two_score_path = NodePath("../../UI/player_two_score")
-waveScene = ExtResource( 2 )
-
-[node name="sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 3 )
+waveScene = ExtResource( 4 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 15.9126 )
+transform/pos = Vector2( 0, 12.8341 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 5 )
 
 [node name="timer" type="Timer" parent="."]
 
@@ -133,6 +142,24 @@ playback/process_mode = 1
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="area" type="Area2D" parent="." groups=[ "totem" ]]
+
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.358488, 5.37731 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="shape" type="CollisionShape2D" parent="area"]
+
+transform/pos = Vector2( 0.358488, 5.37731 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 
