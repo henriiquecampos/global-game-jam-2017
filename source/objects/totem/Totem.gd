@@ -41,6 +41,10 @@ func explode():
 	newWave.set_global_pos(get_global_pos())
 	newWave.get_child(0).set_shape(CircleShape2D.new())
 	newWave.which_player = player_flag
+	if player_flag == "player_one":
+		newWave.get_node("sprite").set_modulate(player_one)
+	elif player_flag == "player_two":
+		newWave.get_node("sprite").set_modulate(player_two)
 	get_node("emiter").set_lifetime(get_node("timer").get_wait_time())
 
 func _on_timer_timeout():

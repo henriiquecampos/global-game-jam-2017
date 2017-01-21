@@ -76,6 +76,6 @@ func _on_Area_area_enter( area ):
 	if area.has_method("be_a_wave"):
 		if area.which_player != player_flag:
 			if not is_dead:
-				opponent_score.score += 1
+				globals.increase_score(player_flag)
 				get_node("../../ColorFrame/animator").play("game over")
 			is_dead = true

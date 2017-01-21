@@ -18,6 +18,7 @@ margin/bottom = 40.0
 
 transform/pos = Vector2( 7.73435, 11.6648 )
 script/script = ExtResource( 2 )
+which_player = "player_one_score"
 
 [node name="trace" parent="." instance=ExtResource( 1 )]
 
@@ -28,5 +29,6 @@ frame = 10
 
 transform/pos = Vector2( 197.328, 11.6648 )
 script/script = ExtResource( 2 )
+which_player = "player_two_score"
 
 

@@ -116,6 +116,7 @@ autostart = false
 [node name="aura" type="Particles2D" parent="."]
 
 editor/display_folded = true
+visibility/behind_parent = true
 config/amount = 32
 config/lifetime = 4.0
 config/time_scale = 2.0
@@ -193,8 +194,6 @@ transform/pos = Vector2( 0.358488, 5.37731 )
 shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
-
-[node name="wave" type="Sprite" parent="."]
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 

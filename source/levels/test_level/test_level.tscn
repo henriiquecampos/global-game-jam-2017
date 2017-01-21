@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://levels/test_level/test_level.gd" type="Script" id=1]
 [ext_resource path="res://areas/tileset/tileset.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://screens/UI/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://screens/score/score.tscn" type="PackedScene" id=6]
+[ext_resource path="res://globals.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -53,6 +54,7 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0
 
 [node name="YSort" type="YSort" parent="."]
 
+editor/display_folded = true
 sort/enabled = true
 
 [node name="Totem" parent="YSort" instance=ExtResource( 3 )]
@@ -104,6 +106,8 @@ opponent_score_path = NodePath("../../score/score_player_one")
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
+
 [node name="player_one_score" parent="UI"]
 
 transform/pos = Vector2( 27.2649, 40.8973 )
@@ -114,6 +118,7 @@ transform/pos = Vector2( 1249.64, 38.6253 )
 
 [node name="ColorFrame" type="ColorFrame" parent="."]
 
+editor/display_folded = true
 visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -138,10 +143,13 @@ autoplay = ""
 
 [node name="score" parent="." instance=ExtResource( 6 )]
 
+editor/display_folded = true
 margin/left = 500.0
 margin/top = -200.0
 margin/right = 540.0
 margin/bottom = -160.0
+
+[node name="globals" parent="." instance=ExtResource( 7 )]
 
 
 [editable path="UI"]
