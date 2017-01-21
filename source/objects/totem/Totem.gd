@@ -31,6 +31,7 @@ func activate(flag):
 		get_node("aura").set_color(player_two)
 		get_node("sprite").set_texture(texture_red)
 	get_node("timer").start()
+	explode()
 	
 func explode():
 	get_node("emiter").set_color(explode_color)

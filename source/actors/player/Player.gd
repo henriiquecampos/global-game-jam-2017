@@ -67,8 +67,9 @@ func _fixed_process(delta):
 				if collider != null:
 					interact()
 func interact():
-	if collider.is_in_group("totem"):
-		collider.get_parent().activate(player_flag)
+	if collider != null:
+		if collider.is_in_group("totem"):
+			collider.get_parent().activate(player_flag)
 	pass
 
 func _on_Area_area_enter( area ):
