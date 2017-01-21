@@ -1,20 +1,54 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/totem/Totem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/totem/Totem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=2]
 
-[node name="test_level" type="YSort"]
+[node name="test_level" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
 
 sort/enabled = true
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="Totem" parent="YSort" instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 466.854, 340.588 )
-multiplier = 5.0
-player_flag = "Red"
+transform/pos = Vector2( 167.458, 142.839 )
 
-[node name="Totem" parent="." instance=ExtResource( 2 )]
+[node name="Totem2" parent="YSort" instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 596.801, 239.071 )
+transform/pos = Vector2( 165.607, 331.602 )
+
+[node name="Totem3" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 633.813, 466.697 )
+
+[node name="Totem4" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 1044.65, 316.797 )
+
+[node name="Totem5" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 1150.14, 85.4696 )
+
+[node name="Totem6" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 626.411, 107.677 )
+
+[node name="Totem7" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 383.98, 409.328 )
+
+[node name="Totem8" parent="YSort" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 905.854, 512.962 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 508.568, 248.908 )
+player_flag = "player_one"
+
+[node name="Player2" parent="YSort" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 689.928, 256.31 )
+player_flag = "player_two"
 
 
