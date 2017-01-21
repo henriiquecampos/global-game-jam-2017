@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://objects/totem/Totem.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.0214, 16.5019 )
+
+[node name="Totem" type="KinematicBody2D" groups=[ "totem" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 15.9126 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+player_one = Color( 0.206787, 0.529892, 0.945313, 1 )
+player_two = Color( 0.898438, 0.136871, 0.476006, 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="shape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 15.9126 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="emiter" type="Particles2D" parent="."]
+
+config/amount = 32
+config/lifetime = 4.0
+config/emitting = false
+config/explosiveness = 0.05
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 200.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 10.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
+[node name="timer" type="Timer" parent="emiter"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
+[connection signal="timeout" from="emiter/timer" to="." method="_on_emiter_timer_timeout"]
+
+

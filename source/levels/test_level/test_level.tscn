@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/totem/Totem.tscn" type="PackedScene" id=2]
+
+[node name="test_level" type="YSort"]
+
+sort/enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 466.854, 340.588 )
+multiplier = 5.0
+player_flag = "Red"
+
+[node name="Totem" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 596.801, 239.071 )
+
+

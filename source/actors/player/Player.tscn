@@ -1,19 +1,35 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://actors/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.8554, 17.5353 )
+
 [node name="Player" type="KinematicBody2D"]
 
-transform/pos = Vector2( 310.904, 249.833 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.487686, 16.0933 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+multiplier = null
+player_flag = "Blue"
 
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.487686, 16.0933 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
