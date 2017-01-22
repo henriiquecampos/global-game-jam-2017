@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var collider = null
 var is_dead = false
+var is_interacting = false
 const SPEED = 2000
 export (float) var multiplier
 export (String, "player_one", "player_two") var player_flag
@@ -14,8 +15,12 @@ func _ready():
 func _fixed_process(delta):
 	#Movement
 	move(Vector2(0,0))
-	if not is_dead:
+	if not is_dead and not is_interacting:
 		if player_flag == "player_one":
+			if Input.is_action_just_pressed("player_one_interact"):
+				get_node("Sprite").set_animation("interact")
+				if collider != null:
+					interact()
 			if Input.is_action_pressed("player_one_up"):
 				move_and_slide(Vector2(0,-SPEED * delta * multiplier))
 				get_node("Sprite").set_animation("running")
@@ -38,8 +43,7 @@ func _fixed_process(delta):
 				move_and_slide(Vector2(0,SPEED * delta * multiplier))
 			elif Input.is_action_just_released("player_one_down"):
 				get_node("Sprite").set_animation("iddle")
-			if Input.is_action_just_pressed("player_one_interact"):
-				interact()
+				#Player 2 behaviour
 		elif player_flag == "player_two":
 			if Input.is_action_pressed("player_two_up"):
 				move_and_slide(Vector2(0,-SPEED * delta * multiplier))
@@ -64,6 +68,8 @@ func _fixed_process(delta):
 			elif Input.is_action_just_released("player_two_down"):
 				get_node("Sprite").set_animation("iddle")
 			if Input.is_action_just_pressed("player_two_interact"):
+				is_interacting = true
+				get_node("Sprite").set_animation("interact")
 				if collider != null:
 					interact()
 func interact():
@@ -73,10 +79,21 @@ func interact():
 	pass
 
 func _on_Area_area_enter( area ):
-	collider = area
 	if area.has_method("be_a_wave"):
 		if area.which_player != player_flag:
 			if not is_dead:
+				get_node("Sprite").play("die")
 				globals.increase_score(player_flag)
 				get_node("../../ColorFrame/animator").play("game over")
 			is_dead = true
+	else:
+		collider = area
+
+func _on_Sprite_finished():
+	if get_node("Sprite").get_animation() == "interact":
+		is_interacting = false
+		get_node("Sprite").set_animation("iddle")
+
+
+func _on_Area_area_exit( area ):
+	collider = null

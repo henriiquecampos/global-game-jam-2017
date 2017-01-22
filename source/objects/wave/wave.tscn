@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://objects/wave/wave.gd" type="Script" id=1]
-[ext_resource path="res://objects/wave/shockwave/1.png" type="Texture" id=2]
-[ext_resource path="res://objects/wave/shockwave/2.png" type="Texture" id=3]
-[ext_resource path="res://objects/wave/shockwave/3..png" type="Texture" id=4]
-[ext_resource path="res://objects/wave/shockwave/4..png" type="Texture" id=5]
-[ext_resource path="res://objects/wave/shockwave/5..png" type="Texture" id=6]
-[ext_resource path="res://objects/wave/shockwave/6..png" type="Texture" id=7]
-[ext_resource path="res://objects/wave/shockwave/7..png" type="Texture" id=8]
+[ext_resource path="res://objects/wave/New Wave/thick_1.png" type="Texture" id=2]
+[ext_resource path="res://objects/wave/New Wave/thick_2.png" type="Texture" id=3]
+[ext_resource path="res://objects/wave/New Wave/thick_3.png" type="Texture" id=4]
+[ext_resource path="res://objects/wave/New Wave/thick_4.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -16,7 +13,19 @@ radius = 10.0
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ], "loop":true, "name":"grow", "speed":8.0 } ]
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ], "loop":true, "name":"grow", "speed":8.0 } ]
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "grow"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0.1, 0.1 ), Vector2( 0.85, 0.85 ) ] }
 
 [node name="wave" type="Area2D"]
 
@@ -44,12 +53,24 @@ _update_shape_index = 0
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
-transform/scale = Vector2( 2, 2 )
+transform/pos = Vector2( 3.09094, -7.61293 )
+transform/scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 2 )
 animation = "grow"
-frame = 2
+frame = 1
 playing = true
-offset = Vector2( -3.29578, 0.242872 )
+offset = Vector2( -9.75244, 0.716996 )
 modulate = Color( 0.547119, 0.453125, 1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/grow = SubResource( 3 )
+playback/active = true
+playback/speed = 2.0
+blend_times = [  ]
+autoplay = "grow"
 
 

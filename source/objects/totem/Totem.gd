@@ -25,11 +25,13 @@ func activate(flag):
 		get_node("aura").set_emitting(true)
 		get_node("aura").set_color(player_one)
 		get_node("sprite").set_texture(texture_blue)
+		get_node("time_charge").set_progress_texture(get_node("time_charge").blue_texture)
 	elif flag == "player_two":
 		explode_color = player_two
 		get_node("aura").set_emitting(true)
 		get_node("aura").set_color(player_two)
 		get_node("sprite").set_texture(texture_red)
+		get_node("time_charge").set_progress_texture(get_node("time_charge").red_texture)
 	get_node("timer").start()
 	explode()
 	

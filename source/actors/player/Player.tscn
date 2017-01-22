@@ -6,28 +6,31 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 18.7424, 23.5181 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 23.2749
+radius = 31.892
 
 [node name="Player" type="KinematicBody2D" groups=[ "players" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.92165, 14.3009 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.28014, 26.4894 )
 shapes/0/trigger = false
 collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-multiplier = 5.0
+multiplier = 7.0
 player_flag = "player_one"
+opponent_score_path = null
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
+process/pause_mode = 2
+transform/scale = Vector2( 2, 2 )
 frames = ExtResource( 2 )
 animation = "iddle"
 frame = 1
@@ -35,7 +38,7 @@ playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -1.92165, 14.3009 )
+transform/pos = Vector2( -2.28014, 26.4894 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -44,7 +47,7 @@ _update_shape_index = 0
 
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.07545, 3.22638 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.15092, 17.2073 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -55,11 +58,13 @@ collision/mask = 3
 
 [node name="Shape" type="CollisionShape2D" parent="Area"]
 
-transform/pos = Vector2( -1.07545, 3.22638 )
+transform/pos = Vector2( -2.15092, 17.2073 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [connection signal="area_enter" from="Area" to="." method="_on_Area_area_enter"]
+
+[connection signal="area_exit" from="Area" to="." method="_on_Area_area_exit"]
 
 
