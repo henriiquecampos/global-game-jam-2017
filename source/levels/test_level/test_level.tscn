@@ -187,6 +187,7 @@ tile_data = IntArray(  )
 
 [node name="YSort" type="YSort" parent="."]
 
+editor/display_folded = true
 sort/enabled = true
 
 [node name="Totem" parent="YSort" instance=ExtResource( 3 )]
@@ -234,7 +235,7 @@ opponent_score_path = NodePath("../../score/score_player_two")
 [node name="Sprite" parent="YSort/Player"]
 
 frames = SubResource( 1 )
-frame = 4
+frame = 1
 
 [node name="Player2" parent="YSort" instance=ExtResource( 4 )]
 
@@ -246,7 +247,7 @@ opponent_score_path = NodePath("../../score/score_player_one")
 [node name="Sprite" parent="YSort/Player2"]
 
 frames = SubResource( 2 )
-frame = 4
+frame = 1
 flip_h = true
 
 [node name="UI" parent="." instance=ExtResource( 49 )]
@@ -290,6 +291,7 @@ autoplay = ""
 
 [node name="score" parent="." instance=ExtResource( 50 )]
 
+editor/display_folded = true
 margin/left = 500.0
 margin/top = -200.0
 margin/right = 540.0
