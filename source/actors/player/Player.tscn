@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://actors/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://actors/player/Player_iddle.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://actors/player/player_samples.tres" type="SampleLibrary" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -33,7 +34,7 @@ process/pause_mode = 2
 transform/scale = Vector2( 2, 2 )
 frames = ExtResource( 2 )
 animation = "iddle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
@@ -62,6 +63,17 @@ transform/pos = Vector2( -2.15092, 17.2073 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
+
+[node name="samples" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 2.01
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = ExtResource( 3 )
+config/pitch_random = 0.0
 
 [connection signal="area_enter" from="Area" to="." method="_on_Area_area_enter"]
 

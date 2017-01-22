@@ -1,25 +1,33 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://objects/totem/Totem.gd" type="Script" id=1]
-[ext_resource path="res://objects/totem/torreBLUE.png" type="Texture" id=2]
-[ext_resource path="res://objects/totem/torreRED.png" type="Texture" id=3]
-[ext_resource path="res://objects/wave/wave.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/totem/torre.png" type="Texture" id=5]
-[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Back.png" type="Texture" id=6]
-[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Front.png" type="Texture" id=7]
-[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Blue.png" type="Texture" id=8]
-[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Red.png" type="Texture" id=9]
+[ext_resource path="res://objects/totem/colorramps/player_one_ramp.tres" type="ColorRamp" id=2]
+[ext_resource path="res://objects/totem/colorramps/player_two_ramp.tres" type="ColorRamp" id=3]
+[ext_resource path="res://objects/totem/torreBLUE.png" type="Texture" id=4]
+[ext_resource path="res://objects/totem/torreRED.png" type="Texture" id=5]
+[ext_resource path="res://objects/wave/wave.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/totem/torre.png" type="Texture" id=7]
+[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Back.png" type="Texture" id=8]
+[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Front.png" type="Texture" id=9]
+[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Blue.png" type="Texture" id=10]
+[ext_resource path="res://objects/totem/ChargeBAR/GUI_ChargeBAR_Red.png" type="Texture" id=11]
+[ext_resource path="res://objects/objects_samples.tres" type="SampleLibrary" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24.1945, 18.268 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 1 )
+colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GDScript" id=6]
 
 script/source = "extends TextureProgress\n\nonready var tween = get_node(\"tween\")\nexport (Texture) var blue_texture\nexport (Texture) var red_texture\nfunc _ready():\n\tset_process(true)\n\t\nfunc _process(delta):\n\tset_max(get_parent().get_node(\"timer\").get_wait_time())\n\t#set_value(get_parent().get_node(\"timer\").get_time_left())\n\tset_value(get_parent().get_node(\"timer\").get_wait_time()\n\t- get_parent().get_node(\"timer\").get_time_left())\n\t\n\t"
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 39.7586
@@ -36,11 +44,13 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 player_one = Color( 0.206787, 0.529892, 0.945313, 1 )
 player_two = Color( 0.898438, 0.136871, 0.476006, 1 )
-texture_blue = ExtResource( 2 )
-texture_red = ExtResource( 3 )
+player_one_ramp = ExtResource( 2 )
+player_two_ramp = ExtResource( 3 )
+texture_blue = ExtResource( 4 )
+texture_red = ExtResource( 5 )
 player_one_score_path = NodePath("../../UI/player_one_score")
 player_two_score_path = NodePath("../../UI/player_two_score")
-waveScene = ExtResource( 4 )
+waveScene = ExtResource( 6 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
 
@@ -52,7 +62,7 @@ _update_shape_index = 0
 [node name="sprite" type="Sprite" parent="."]
 
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="timer" type="Timer" parent="."]
 
@@ -66,7 +76,7 @@ autostart = false
 editor/display_folded = true
 transform/scale = Vector2( 2, 2 )
 config/amount = 32
-config/lifetime = 2.5
+config/lifetime = 0.5
 config/emitting = false
 config/explosiveness = 0.05
 params/direction = 0.0
@@ -97,10 +107,10 @@ autostart = false
 
 editor/display_folded = true
 visibility/behind_parent = true
+transform/pos = Vector2( 0, -43.3705 )
 transform/scale = Vector2( 2, 2 )
-config/amount = 32
-config/lifetime = 4.0
-config/time_scale = 2.0
+config/amount = 8
+config/lifetime = 1.0
 config/emitting = false
 params/direction = 180.0
 params/spread = 20.0
@@ -118,6 +128,7 @@ params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 5 )
 
 [node name="timer" type="Timer" parent="aura"]
 
@@ -145,14 +156,14 @@ range/page = 0.0
 range/value = 100.0
 range/exp_edit = false
 range/rounded = false
-texture/under = ExtResource( 6 )
-texture/over = ExtResource( 7 )
+texture/under = ExtResource( 8 )
+texture/over = ExtResource( 9 )
 texture/progress = null
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
-script/script = SubResource( 2 )
-blue_texture = ExtResource( 8 )
-red_texture = ExtResource( 9 )
+script/script = SubResource( 6 )
+blue_texture = ExtResource( 10 )
+red_texture = ExtResource( 11 )
 
 [node name="tween" type="Tween" parent="time_charge"]
 
@@ -163,8 +174,9 @@ playback/speed = 1.0
 
 [node name="area" type="Area2D" parent="." groups=[ "totem" ]]
 
+transform/pos = Vector2( -0.735107, 13.9668 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.358488, 5.37731 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -175,9 +187,20 @@ angular_damp = 1.0
 [node name="shape" type="CollisionShape2D" parent="area"]
 
 transform/pos = Vector2( 0.358488, 5.37731 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
+
+[node name="samples" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 2
+config/samples = ExtResource( 12 )
+config/pitch_random = 0.0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 

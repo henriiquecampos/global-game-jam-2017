@@ -9,6 +9,7 @@ var which_player
 func be_a_wave():
 	pass
 func _ready():
+	get_node("samples").play("shockwave")
 	set_fixed_process(true)
 
 func _fixed_process(delta):

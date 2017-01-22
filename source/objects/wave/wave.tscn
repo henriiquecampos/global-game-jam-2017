@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://objects/wave/wave.gd" type="Script" id=1]
 [ext_resource path="res://objects/wave/New Wave/thick_1.png" type="Texture" id=2]
 [ext_resource path="res://objects/wave/New Wave/thick_2.png" type="Texture" id=3]
 [ext_resource path="res://objects/wave/New Wave/thick_3.png" type="Texture" id=4]
 [ext_resource path="res://objects/wave/New Wave/thick_4.png" type="Texture" id=5]
+[ext_resource path="res://objects/objects_samples.tres" type="SampleLibrary" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -57,7 +58,6 @@ transform/pos = Vector2( 3.09094, -7.61293 )
 transform/scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 2 )
 animation = "grow"
-frame = 1
 playing = true
 offset = Vector2( -9.75244, 0.716996 )
 modulate = Color( 0.547119, 0.453125, 1, 1 )
@@ -72,5 +72,16 @@ playback/active = true
 playback/speed = 2.0
 blend_times = [  ]
 autoplay = "grow"
+
+[node name="samples" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = ExtResource( 6 )
+config/pitch_random = 0.0
 
 
