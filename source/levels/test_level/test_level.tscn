@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=1]
+[gd_scene load_steps=59 format=1]
 
 [ext_resource path="res://levels/test_level/test_level.gd" type="Script" id=1]
 [ext_resource path="res://areas/tileset/tilesetResized.tres" type="TileSet" id=2]
@@ -10,55 +10,75 @@
 [ext_resource path="res://actors/player/ManChar/Activate/ManChar_Activate_04.png" type="Texture" id=8]
 [ext_resource path="res://actors/player/ManChar/Activate/ManChar_Activate_05.png" type="Texture" id=9]
 [ext_resource path="res://actors/player/ManChar/Activate/ManChar_Activate_06.png" type="Texture" id=10]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-01.png" type="Texture" id=11]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-02.png" type="Texture" id=12]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-03.png" type="Texture" id=13]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-04.png" type="Texture" id=14]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-05.png" type="Texture" id=15]
-[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-06.png" type="Texture" id=16]
-[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_01.png" type="Texture" id=17]
-[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_02.png" type="Texture" id=18]
-[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_03.png" type="Texture" id=19]
-[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_04.png" type="Texture" id=20]
-[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_05.png" type="Texture" id=21]
-[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_01.png" type="Texture" id=22]
-[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_02.png" type="Texture" id=23]
-[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_03.png" type="Texture" id=24]
-[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_04.png" type="Texture" id=25]
-[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_05.png" type="Texture" id=26]
+[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_01.png" type="Texture" id=11]
+[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_02.png" type="Texture" id=12]
+[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_03.png" type="Texture" id=13]
+[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_04.png" type="Texture" id=14]
+[ext_resource path="res://actors/player/ManChar/Stay/ManChar_Stay_05.png" type="Texture" id=15]
+[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_01.png" type="Texture" id=16]
+[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_02.png" type="Texture" id=17]
+[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_03.png" type="Texture" id=18]
+[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_04.png" type="Texture" id=19]
+[ext_resource path="res://actors/player/ManChar/Die/ManChar_Die_05.png" type="Texture" id=20]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-01.png" type="Texture" id=21]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-02.png" type="Texture" id=22]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-03.png" type="Texture" id=23]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-04.png" type="Texture" id=24]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-05.png" type="Texture" id=25]
+[ext_resource path="res://actors/player/ManChar/Run/ManChar_Run-06.png" type="Texture" id=26]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_01.png" type="Texture" id=27]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_02.png" type="Texture" id=28]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_03.png" type="Texture" id=29]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_04.png" type="Texture" id=30]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_05.png" type="Texture" id=31]
 [ext_resource path="res://actors/player/WomanChar/Activate/WomanChar_Activate_06.png" type="Texture" id=32]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_1.png" type="Texture" id=33]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_2.png" type="Texture" id=34]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_3.png" type="Texture" id=35]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_4.png" type="Texture" id=36]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_5.png" type="Texture" id=37]
-[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_6.png" type="Texture" id=38]
-[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_01.png" type="Texture" id=39]
-[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_02.png" type="Texture" id=40]
-[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_03.png" type="Texture" id=41]
-[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_04.png" type="Texture" id=42]
-[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_05.png" type="Texture" id=43]
-[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_01l.png" type="Texture" id=44]
-[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_02.png" type="Texture" id=45]
-[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_03.png" type="Texture" id=46]
-[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_04.png" type="Texture" id=47]
-[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_05.png" type="Texture" id=48]
+[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_01l.png" type="Texture" id=33]
+[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_02.png" type="Texture" id=34]
+[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_03.png" type="Texture" id=35]
+[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_04.png" type="Texture" id=36]
+[ext_resource path="res://actors/player/WomanChar/Stay/WomanChar_Stay_05.png" type="Texture" id=37]
+[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_01.png" type="Texture" id=38]
+[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_02.png" type="Texture" id=39]
+[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_03.png" type="Texture" id=40]
+[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_04.png" type="Texture" id=41]
+[ext_resource path="res://actors/player/WomanChar/Die/WomanChar_Die_05.png" type="Texture" id=42]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_1.png" type="Texture" id=43]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_2.png" type="Texture" id=44]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_3.png" type="Texture" id=45]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_4.png" type="Texture" id=46]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_5.png" type="Texture" id=47]
+[ext_resource path="res://actors/player/WomanChar/Run/WomanChar_Run_6.png" type="Texture" id=48]
 [ext_resource path="res://screens/UI/UI.tscn" type="PackedScene" id=49]
 [ext_resource path="res://screens/score/score.tscn" type="PackedScene" id=50]
 [ext_resource path="res://globals.tscn" type="PackedScene" id=51]
 
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1400, 800, 1400, 100, 1450, 100, 1450, 850 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1400, 800, 1450, 850, -50, 850, 0, 800 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 0, 800, -50, 850, -50, 50, 0, 100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 0, 100, -50, 50, 1400, 50, 1400, 100 )
+
 [sub_resource type="SpriteFrames" id=1]
 
-animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ], "loop":true, "name":"interact", "speed":5.0 }, { "frames":[ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ], "loop":true, "name":"running", "speed":8.0 }, { "frames":[ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ], "loop":true, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ], "loop":true, "name":"iddle", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ], "loop":true, "name":"interact", "speed":5.0 }, { "frames":[ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ], "loop":true, "name":"iddle", "speed":5.0 }, { "frames":[ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ], "loop":true, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ], "loop":true, "name":"running", "speed":8.0 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":true, "name":"interact", "speed":5.0 }, { "frames":[ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ], "loop":true, "name":"running", "speed":8.0 }, { "frames":[ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ) ], "loop":true, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ], "loop":true, "name":"iddle", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":true, "name":"interact", "speed":5.0 }, { "frames":[ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ], "loop":true, "name":"iddle", "speed":5.0 }, { "frames":[ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ], "loop":true, "name":"die", "speed":5.0 }, { "frames":[ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ], "loop":true, "name":"running", "speed":8.0 } ]
 
 [sub_resource type="Animation" id=3]
 
@@ -81,8 +101,27 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 500, 270 ), Vector2( 557, 273 ) ] }
 
-[node name="test_level" type="Node2D"]
+[node name="test_level" type="StaticBody2D"]
 
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 5 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 6 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 7 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 script/script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -125,6 +164,8 @@ tile_data = IntArray( 0, 5, 1, 6, 2, 4, 3, 6, 4, 5, 5, 5, 6, 5, 7, 5, 8, 4, 9, 6
 
 [node name="Node2D" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="TileMap3" type="TileMap" parent="Node2D"]
 
 transform/scale = Vector2( 2, 2 )
@@ -146,66 +187,71 @@ tile_data = IntArray(  )
 
 [node name="YSort" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="Totem" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 682, 382 )
+transform/pos = Vector2( 682, 432 )
 
 [node name="Totem5" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1082, 382 )
+transform/pos = Vector2( 1032, 432 )
 
 [node name="Totem6" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 982, 182 )
+transform/pos = Vector2( 1032, 182 )
 
 [node name="Totem7" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 932, 582 )
+transform/pos = Vector2( 1032, 732 )
 
 [node name="Totem8" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 732, 582 )
+transform/pos = Vector2( 682, 732 )
 
 [node name="Totem9" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 482, 582 )
+transform/pos = Vector2( 332, 732 )
 
 [node name="Totem2" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 382, 382 )
+transform/pos = Vector2( 332, 432 )
 
 [node name="Totem3" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 432, 182 )
+transform/pos = Vector2( 332, 182 )
 
 [node name="Totem4" parent="YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 682, 132 )
+transform/pos = Vector2( 682, 182 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 282, 382 )
+editor/display_folded = true
+transform/pos = Vector2( 104.105, 432 )
 opponent_score_path = NodePath("../../score/score_player_two")
 
 [node name="Sprite" parent="YSort/Player"]
 
 frames = SubResource( 1 )
-frame = 2
+frame = 4
 
 [node name="Player2" parent="YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 1232, 382 )
+editor/display_folded = true
+transform/pos = Vector2( 1282, 432 )
 player_flag = "player_two"
 opponent_score_path = NodePath("../../score/score_player_one")
 
 [node name="Sprite" parent="YSort/Player2"]
 
 frames = SubResource( 2 )
+frame = 4
+flip_h = true
 
 [node name="UI" parent="." instance=ExtResource( 49 )]
+
+editor/display_folded = true
 
 [node name="player_one_score" parent="UI"]
 
@@ -244,7 +290,6 @@ autoplay = ""
 
 [node name="score" parent="." instance=ExtResource( 50 )]
 
-editor/display_folded = true
 margin/left = 500.0
 margin/top = -200.0
 margin/right = 540.0
@@ -273,16 +318,12 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-stream/stream = null
-stream/play = false
-stream/loop = false
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
+build_mode = 0
+polygon = Vector2Array( 0, 100, 0, 800, 1400, 800, 1400, 100, 1450, 100, 1450, 850, -50, 850, -50, 50, 1400, 50, 1400, 100 )
+shape_range = Vector2( 0, 3 )
+trigger = false
 
 [connection signal="finished" from="YSort/Player/Sprite" to="YSort/Player" method="_on_Sprite_finished"]
 

@@ -17,10 +17,6 @@ func _fixed_process(delta):
 	move(Vector2(0,0))
 	if not is_dead and not is_interacting:
 		if player_flag == "player_one":
-			if Input.is_action_just_pressed("player_one_interact"):
-				get_node("Sprite").set_animation("interact")
-				if collider != null:
-					interact()
 			if Input.is_action_pressed("player_one_up"):
 				move_and_slide(Vector2(0,-SPEED * delta * multiplier))
 				get_node("Sprite").set_animation("running")
@@ -44,6 +40,11 @@ func _fixed_process(delta):
 			elif Input.is_action_just_released("player_one_down"):
 				get_node("Sprite").set_animation("iddle")
 				#Player 2 behaviour
+			if Input.is_action_just_pressed("player_one_interact"):
+				is_interacting = true
+				get_node("Sprite").set_animation("interact")
+				if collider != null:
+					interact()
 		elif player_flag == "player_two":
 			if Input.is_action_pressed("player_two_up"):
 				move_and_slide(Vector2(0,-SPEED * delta * multiplier))
@@ -83,6 +84,7 @@ func _on_Area_area_enter( area ):
 		if area.which_player != player_flag:
 			if not is_dead:
 				get_node("Sprite").play("die")
+				get_node("samples").play("death")
 				globals.increase_score(player_flag)
 				get_node("../../ColorFrame/animator").play("game over")
 			is_dead = true
